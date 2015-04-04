@@ -1,0 +1,29 @@
+public class Main {
+	//®”‚Ì”
+	public static int n = 3;
+	//®”
+	public static int[] a = {2,4,6}; 
+	//‹‚ß‚é˜a
+	public static int k = 12;
+	
+	public static void main(String[] args) {
+	if (solve(0,0)) {
+		System.out.println("yes");
+	} else {
+		System.out.println("no");
+	}		
+}
+
+	private static boolean solve(int i,int sum){
+		if ( i == n ) {
+			return sum == k;	
+		}
+		if(solve( i + 1,sum )){
+			return true;
+		}
+		if(solve( i + 1,sum + a[i] )){
+			return true;
+		}
+			return false;		
+	}
+}
