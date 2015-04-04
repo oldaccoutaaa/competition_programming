@@ -1,9 +1,9 @@
 public class Main {
-	//®”‚Ì”
+	//seisuuno kazu
 	public static int n = 3;
-	//®”
+	//seisuu
 	public static int[] a = {2,4,6}; 
-	//‹‚ß‚é˜a
+	//motomeru wa
 	public static int k = 12;
 	
 	public static void main(String[] args) {
