@@ -1,0 +1,71 @@
+import java.util.*;
+
+public class Main {
+	static Scanner scanner = new Scanner(System.in);
+	public static int num_f = 0;
+	public static int num_d = 0;
+	public static int dx[] = { 1, -1, 0, 0 };
+	public static int dy[] = { 0, 0, 1, -1 };
+
+	public static char[][] fi = new char[30][30];
+    
+
+	public static void main(String[] args) {
+		while (true) {
+		int count = 0;
+		int m = scanner.nextInt();
+		int n = scanner.nextInt();
+		
+		for (int w = 0; w < 30; w++) {
+			for (int ho = 0; ho < 30; ho++) {
+				fi[w][ho] = '#';
+				
+			}
+			
+		}
+		
+		for (int h = 1; h <= n; h++) {
+			String str = scanner.next();
+			for (int t = 1; t <= m; t++) {
+				char ch = str.charAt(t-1);
+				fi[h][t] = ch;
+			}
+		}
+		
+		
+		if (n == 0 && m == 0) {
+			return;
+		}
+
+		for (int f = 1; f < 30; f++) {
+			for (int d = 1; d < 30; d++) {
+				if (fi[f][d] == '@') {
+					num_f = f;
+					num_d = d;
+					fi[num_f][num_d] = '.';
+					solve(num_f, num_d);
+
+				}
+			}
+		}
+		for (int q = 1; q < 30; q++) {
+			for (int a = 1; a < 30; a++) {
+				if (fi[q][a] == '@') {
+					count++;
+				}
+			}
+		}
+		System.out.println(count);
+	}
+}
+	public static void solve(int x, int y) {
+		if(fi[x][y] != '.') return ;
+		fi[x][y] = '@';
+		for (int i = 0; i < 4; i++) {
+			int nx = x + dx[i];
+			int ny = y + dy[i];
+				solve(nx, ny);
+		}
+		return;
+	}
+}
